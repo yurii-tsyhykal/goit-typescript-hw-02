@@ -1,0 +1,9 @@
+.cardBox {
+  box-sizing: border-box;
+  overflow: hidden;
+  max-height: 100%;
+}
+.cardImage {
+  box-sizing: border-box;
+  display: block;
+}

@@ -1,0 +1,12 @@
+.galleryList {
+  padding-left: 0;
+  list-style: none;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.galleryItemList {
+  max-width: calc((100% - 40px) / 4);
+}

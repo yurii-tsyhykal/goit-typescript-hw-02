@@ -1,0 +1,39 @@
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: blue;
+  padding: 10px 0;
+}
+
+.searchForm {
+  position: relative;
+}
+
+.searchInput {
+  width: 400px;
+  padding: 5px 15px;
+  padding-left: 30px;
+  outline: transparent;
+}
+
+.searchBtn {
+  cursor: pointer;
+  background-color: transparent;
+  outline: transparent;
+  border: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  padding-top: 3px;
+  padding-bottom: 2px;
+  align-items: center;
+  text-align: center;
+}
+
+.searchIcon {
+  stroke: transparent;
+  fill: gray;
+  width: 20px;
+  height: 20px;
+}
