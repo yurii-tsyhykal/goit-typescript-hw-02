@@ -1,23 +1,28 @@
-import toast, {  Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 import css from './SearchBar.module.css';
 import { IoIosSearch } from 'react-icons/io';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { onHandleSubmit } from '../../App/App.types';
 
-const SearchBar = ({ onSubmit }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+interface SearchBar {
+  onSubmit: onHandleSubmit;
+}
+
+const SearchBar: React.FC<SearchBar> = ({ onSubmit }) => {
+  const [searchQuery, setSearchQuery] = useState<string>('');
   const notify = () => toast.error('Please enter ur word for search');
-  const handleChange = e => {
-    setSearchQuery(e.target.value.trim());
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setSearchQuery(e.target.value);
   };
 
-  const handleSubmit = e => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (searchQuery.length === 0) {
+    if (searchQuery.trim().length === 0) {
       notify();
       return;
     }
-    onSubmit(searchQuery);
+    onSubmit(searchQuery.trim());
     setSearchQuery('');
   };
 

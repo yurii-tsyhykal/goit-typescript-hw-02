@@ -1,7 +1,14 @@
 //ImageCard.jsx
+import React from 'react';
 import css from './ImageCard.module.css';
+import { Image, openModal, Urls } from '../../App/App.types';
 
-const ImageCard = ({
+interface ImageCard extends Omit<Image, 'id'> {
+  urls: Urls;
+  openModal: openModal;
+}
+
+const ImageCard: React.FC<ImageCard> = ({
   alt_description,
   urls: { small, regular },
   openModal,

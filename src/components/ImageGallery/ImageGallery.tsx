@@ -1,8 +1,14 @@
-//ImageGallery.jsx
+import React from 'react';
+import { Image, openModal } from '../../App/App.types';
 import ImageCard from '../ImageCard/ImageCard';
 import css from './ImageGallery.module.css';
 
-const ImageGallery = ({ photoArray, openModal }) => {
+interface ImageGallery {
+  photoArray: Image[];
+  openModal: openModal;
+}
+
+const ImageGallery: React.FC<ImageGallery> = ({ photoArray, openModal }) => {
   return (
     <ul className={css.galleryList}>
       {photoArray.map(({ id, ...objPhoto }) => {

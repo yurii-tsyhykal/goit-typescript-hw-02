@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import { closeModal } from '../../App/App.types';
 
 Modal.setAppElement('#root');
 
@@ -13,7 +14,19 @@ const customStyles = {
   },
 };
 
-const ImageModal = ({ modalIsOpen, closeModal, src, alt }) => {
+interface ImageModal {
+  modalIsOpen: boolean;
+  closeModal: closeModal;
+  src: string | null;
+  alt: string | null;
+}
+
+const ImageModal: React.FC<ImageModal> = ({
+  modalIsOpen,
+  closeModal,
+  src,
+  alt,
+}) => {
   return (
     <>
       <Modal
@@ -22,7 +35,7 @@ const ImageModal = ({ modalIsOpen, closeModal, src, alt }) => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-        <img src={src} alt={alt} />
+        <img src={src || 'We don’t have image'} alt={alt || 'Image here'} />
       </Modal>
     </>
   );
